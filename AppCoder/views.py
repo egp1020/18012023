@@ -33,16 +33,16 @@ def formularioMostrarCanal(request, sensor_identificacion):
 def eliminarCanal(request, canal_nombre):
     canal = Canal.objects.get(nombre=canal_nombre)
     canal.delete()
-    # vuelvo al menú
+    """ # vuelvo al menú
     canal2 = Canal.objects.all()  # trae todos los sensores
     contexto = {"canal": canal2}
-    #return render(request, "AppCoder/MostraCanales.html", contexto)
-    return render(request, "MostraCanales", contexto)
+    #return render(request, "AppCoder/MostraCanales.html", contexto) """
+    return redirect("MostrarCanales")
 
 def leerCanal(request):
       canal = Canal.objects.all() #trae todos los sensores
       contexto= {"canal":canal} 
-      return render(request, "AppCoder/leerSensores.html",contexto)
+      return render(request, "AppCoder/MostrarCanales.html",contexto)
 
 def editarCanal(request, canal_nombre):
     # Recibe el nombre del sensor que vamos a modificar
